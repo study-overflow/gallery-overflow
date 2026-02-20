@@ -39,7 +39,7 @@ def generate_index():
         date = meta.get('date', mod_date)  # Use provided date if available, otherwise use file mod time
 
         # Build CDN URL
-        cdn_url = f"https://cdn.jsdelivr.net/gh/zzhang/gallery-overflow@main/{file_path}"
+        cdn_url = f"https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/{file_path}"
 
         # Create index entry
         index_entry = {
