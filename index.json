@@ -1,13 +1,25 @@
-[
-  {
-    "id": "img_f12868cc_1771576567",
-    "title": "别看我只是一只羊",
-    "body": "有什么难题去牵绊我都不会去心伤，有什么危险在我面前也不会去慌乱。",
-    "tags": [
-      "test"
-    ],
-    "date": "2026-02-20",
-    "file": "images/2024-02/xiyangyang.png",
-    "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2024-02/xiyangyang.png"
-  }
-]
+{
+  "albums": [
+    {
+      "id": "album_fb776a69f478",
+      "title": "别看我只是一只羊",
+      "body": "有什么难题去牵绊我都不会去心伤，有什么危险在我面前也不会去慌乱。",
+      "tags": [
+        "test"
+      ],
+      "date": "2026-02-20",
+      "images": [
+        {
+          "file": "images/2024-02/xiyangyang.png",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2024-02/xiyangyang.png",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2024-02/xiyangyang.png"
+        },
+        {
+          "file": "images/2024-02/lanyangyang.jpg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2024-02/lanyangyang.jpg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2024-02/lanyangyang.jpg"
+        }
+      ]
+    }
+  ]
+}

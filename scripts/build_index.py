@@ -1,64 +1,98 @@
 #!/usr/bin/env python3
 """
-Script to generate index.json for image gallery from meta.json
+Generate index.json for gallery. Supports:
+- Legacy: list of single-image entries { "file", "title", "body", "tags" } -> each becomes a one-image album.
+- Albums: list of albums { "title", "body", "tags", "images": ["path", ...] } -> one album per entry.
+Output: { "albums": [ { "id", "title", "body", "tags", "date", "images": [ { "file", "cdn_url", "raw_url" } ] } ] }
 """
 import json
 import os
-from datetime import datetime
 import hashlib
+from datetime import datetime
+from urllib.parse import quote
 
-def generate_image_id(file_path):
-    """Generate a unique ID for an image based on file path and timestamp"""
-    # Create a hash of the file path to ensure uniqueness
-    file_hash = hashlib.md5(file_path.encode()).hexdigest()
-    return f"img_{file_hash[:8]}_{int(datetime.now().timestamp())}"
+GALLERY_REPO = "study-overflow/gallery-overflow"
+CDN_BASE = f"https://cdn.jsdelivr.net/gh/{GALLERY_REPO}@main/"
+RAW_BASE = f"https://raw.githubusercontent.com/{GALLERY_REPO}/main/"
 
-def get_file_modification_time(file_path):
-    """Get the modification time of a file"""
+
+def generate_album_id(title, index):
+    h = hashlib.md5((title + str(index)).encode()).hexdigest()
+    return f"album_{h[:12]}"
+
+
+def ensure_raw_url(file_path):
+    parts = file_path.split("/")
+    encoded = "/".join(quote(p, safe="") for p in parts)
+    return RAW_BASE + encoded
+
+
+def ensure_cdn_url(file_path):
+    return CDN_BASE + file_path
+
+
+def get_file_date(file_path):
     if os.path.exists(file_path):
-        mod_timestamp = os.path.getmtime(file_path)
-        return datetime.fromtimestamp(mod_timestamp).strftime('%Y-%m-%d')
-    else:
-        return datetime.now().strftime('%Y-%m-%d')
+        return datetime.fromtimestamp(os.path.getmtime(file_path)).strftime("%Y-%m-%d")
+    return datetime.now().strftime("%Y-%m-%d")
 
-def generate_index():
-    # Load metadata from meta.json
-    with open('meta.json', 'r', encoding='utf-8') as f:
-        metadata_list = json.load(f)
 
-    # Generate index data
-    index_data = []
-    for meta in metadata_list:
-        file_path = meta['file']
+def normalize_to_albums(metadata_list):
+    """Convert meta (legacy or album format) to list of album dicts."""
+    albums = []
+    for i, meta in enumerate(metadata_list):
+        if "images" in meta:
+            # New album format: { title, body, tags?, date?, images: ["path", ...] }
+            image_paths = meta["images"]
+            if not isinstance(image_paths[0], dict):
+                image_paths = [{"file": p} if isinstance(p, str) else p for p in image_paths]
+            images = []
+            for im in image_paths:
+                path = im.get("file", im) if isinstance(im, dict) else im
+                images.append({
+                    "file": path,
+                    "cdn_url": ensure_cdn_url(path),
+                    "raw_url": ensure_raw_url(path),
+                })
+            album = {
+                "id": meta.get("id") or generate_album_id(meta.get("title", ""), i),
+                "title": meta.get("title", "Untitled"),
+                "body": meta.get("body", ""),
+                "tags": meta.get("tags", []),
+                "date": meta.get("date") or (get_file_date(images[0]["file"]) if images else datetime.now().strftime("%Y-%m-%d")),
+                "images": images,
+            }
+            albums.append(album)
+        else:
+            # Legacy single-image entry: { file, title, body, tags }
+            path = meta.get("file", "")
+            album = {
+                "id": meta.get("id") or generate_album_id(meta.get("title", ""), i),
+                "title": meta.get("title", "Untitled"),
+                "body": meta.get("body", ""),
+                "tags": meta.get("tags", []),
+                "date": meta.get("date", get_file_date(path)),
+                "images": [{
+                    "file": path,
+                    "cdn_url": ensure_cdn_url(path),
+                    "raw_url": ensure_raw_url(path),
+                }],
+            }
+            albums.append(album)
+    return albums
 
-        # Generate unique ID for the image
-        img_id = generate_image_id(file_path)
 
-        # Get file modification time
-        mod_date = get_file_modification_time(file_path)
-        date = meta.get('date', mod_date)  # Use provided date if available, otherwise use file mod time
+def main():
+    meta_path = os.path.join(os.path.dirname(__file__), "..", "meta.json")
+    index_path = os.path.join(os.path.dirname(__file__), "..", "index.json")
+    with open(meta_path, "r", encoding="utf-8") as f:
+        meta_list = json.load(f)
+    albums = normalize_to_albums(meta_list)
+    out = {"albums": albums}
+    with open(index_path, "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, indent=2)
+    print(f"Generated index.json with {len(albums)} album(s)")
 
-        # Build CDN URL
-        cdn_url = f"https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/{file_path}"
-
-        # Create index entry
-        index_entry = {
-            "id": img_id,
-            "title": meta.get('title', ''),
-            "body": meta.get('body', ''),
-            "tags": meta.get('tags', []),
-            "date": date,
-            "file": file_path,
-            "cdn_url": cdn_url
-        }
-
-        index_data.append(index_entry)
-
-    # Write index.json
-    with open('index.json', 'w', encoding='utf-8') as f:
-        json.dump(index_data, f, ensure_ascii=False, indent=2)
-
-    print(f"Generated index.json with {len(index_data)} images")
 
 if __name__ == "__main__":
-    generate_index()
+    main()
