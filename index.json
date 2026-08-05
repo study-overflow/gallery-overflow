@@ -7,7 +7,7 @@
       "tags": [
         "test"
       ],
-      "date": "2024-01-01",
+      "date": "2004-12-26",
       "images": [
         {
           "file": "images/2024-02/xiyangyang.png",
@@ -28,7 +28,7 @@
       "tags": [
         "山海客"
       ],
-      "date": "2026-05-06",
+      "date": "2026-05-03",
       "images": [
         {
           "file": "images/2026-05/DSC03544.jpg",
@@ -159,6 +159,82 @@
           "file": "images/2026-05/DSC04113.jpg",
           "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-05/DSC04113.jpg",
           "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-05/DSC04113.jpg"
+        }
+      ]
+    },
+    {
+      "id": "album_5466eca2977c",
+      "title": "大同",
+      "body": "悲平城。驱马入云中。阴山常晦雪。荒松无罢风。",
+      "tags": [
+        "云中客"
+      ],
+      "date": "2026-08-05",
+      "images": [
+        {
+          "file": "images/2026-08/20260805-222927.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-222927.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-222927.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-222959.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-222959.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-222959.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223003.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223003.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223003.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223006.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223006.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223006.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223009.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223009.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223009.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223013.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223013.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223013.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223020.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223020.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223020.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223028.png",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223028.png",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223028.png"
+        },
+        {
+          "file": "images/2026-08/20260805-223037.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223037.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223037.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223040.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223040.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223040.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223046.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223046.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223046.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223050.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223050.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223050.jpeg"
+        },
+        {
+          "file": "images/2026-08/20260805-223053.jpeg",
+          "cdn_url": "https://cdn.jsdelivr.net/gh/study-overflow/gallery-overflow@main/images/2026-08/20260805-223053.jpeg",
+          "raw_url": "https://raw.githubusercontent.com/study-overflow/gallery-overflow/main/images/2026-08/20260805-223053.jpeg"
         }
       ]
     }
